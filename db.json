@@ -1,0 +1,11 @@
+{
+  "users": [
+    {
+      "id": 1,
+      "name": "json-server",
+      "email": "typicode@gmail.com",
+      "phone": "6745645",
+      "status": false
+    }
+  ]
+}
