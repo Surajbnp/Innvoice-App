@@ -8,7 +8,7 @@ import {
   useColorMode,
 } from "@chakra-ui/react";
 import { MoonIcon, SunIcon } from "@chakra-ui/icons";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -22,7 +22,7 @@ export default function Navbar() {
     <>
       <Box bg={useColorModeValue("orange", "gray.900")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
-          <Box>CRUD APP</Box>
+          <Link to='/'>CRUD APP</Link>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>

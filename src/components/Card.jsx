@@ -1,19 +1,45 @@
-import React from 'react'
-import {Routes, Route} from 'react-router-dom'
-import Homepage from './Homepage'
-import Login from './Login';
-import Editpage from './Editpage';
-import Add from './Add';
+import { Badge, Button, ButtonGroup, Tbody, Td, Tr } from "@chakra-ui/react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { delUser, loadUser } from "../redux/action";
+import { Link } from 'react-router-dom';
 
-const MainRoutes = () => {
+const Card = ({ id, name, email, phone, status }) => {
+  const dispatch = useDispatch();
+
+  const handleDel = (id) => {
+    dispatch(delUser(id)).then(() => {
+        dispatch(loadUser())
+    })
+  };
+
+
+
   return (
-    <Routes>
-        <Route path='/' element={<Homepage />} /> 
-        <Route path='/login' element={<Login />} /> 
-        <Route path='/editpage/:id' element={<Editpage />} /> 
-        <Route path='/add' element={<Add />} /> 
-    </Routes>
-  )
-}
+    <Tbody>
+      <Tr>
+        <Td>{id}</Td>
+        <Td>{name}</Td>
+        <Td>{email}</Td>
+        <Td>{phone}</Td>
+        <Td>
+          {status==='true' ? (
+            <Badge colorScheme={"green"}>Active</Badge>
+          ) : (
+            <Badge colorScheme={"red"}>Not Active</Badge>
+          )}
+        </Td>
+        <Td>
+          <ButtonGroup variant="outline" spacing="6">
+            <Link to={`/editpage/${id}`}><Button colorScheme="green">Edit</Button></Link>
+            <Button colorScheme="red" onClick={() => handleDel(id)}>
+              Delete
+            </Button>
+          </ButtonGroup>
+        </Td>
+      </Tr>
+    </Tbody>
+  );
+};
 
-export default MainRoutes
+export default Card;
