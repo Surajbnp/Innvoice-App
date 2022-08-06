@@ -24,7 +24,7 @@ const SinglePage = () => {
   }, [dispatch, id]);
 
   return (
-    <Box h={"160vh"} >
+    <Box h={"160vh"}>
       <Flex p={50} gap={10} direction="row" w={"60%"} margin="auto">
         <Box ref={componentRef} border="1px solid grey" w={"100%"} p={10}>
           <Text fontSize={"2xl"} fontWeight={600} textAlign="center">
