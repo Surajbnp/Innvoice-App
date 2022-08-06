@@ -1,7 +1,7 @@
 {
   "users": [
     {
-      "name": "Paracitamol IP200 ",
+      "name": "Paracitamol IP200 Tab",
       "brand": "Mankinnd",
       "mfgMonth": "JAN",
       "mfgYear": "2022",
@@ -40,6 +40,67 @@
       "id": 3
     }
   ],
-  "cart": [],
+  "cart": [
+    {
+      "name": "Paracitamol IP200 Tab",
+      "brand": "Mankinnd",
+      "mfgMonth": "JAN",
+      "mfgYear": "2022",
+      "expMonth": "MAY",
+      "expYear": "2024",
+      "boxW": "454",
+      "boxR": "880",
+      "no_of_leaf": "10",
+      "no_of_tab": "10",
+      "id": 1,
+      "boxC": 1,
+      "leafC": 0,
+      "retailC": 0,
+      "boxTotal": 454,
+      "leafTotal": "0.00",
+      "tabTotal": "0.00",
+      "subTotal": "454.00"
+    },
+    {
+      "name": "Cipla Gold 100",
+      "brand": "Farma Hub",
+      "mfgMonth": "JULY",
+      "mfgYear": "2023",
+      "expMonth": "AUG",
+      "expYear": "2025",
+      "boxW": "545",
+      "boxR": "776",
+      "no_of_leaf": "10",
+      "no_of_tab": "5",
+      "id": 2,
+      "boxC": 1,
+      "leafC": 0,
+      "retailC": 0,
+      "boxTotal": 545,
+      "leafTotal": "0.00",
+      "tabTotal": "0.00",
+      "subTotal": "545.00"
+    },
+    {
+      "name": "Sumo Gold",
+      "brand": "Farma Hub",
+      "mfgMonth": "JAN",
+      "mfgYear": "2022",
+      "expMonth": "JAN",
+      "expYear": "2022",
+      "boxW": "333",
+      "boxR": "439",
+      "no_of_leaf": "10",
+      "no_of_tab": "10",
+      "id": 3,
+      "boxC": 1,
+      "leafC": 0,
+      "retailC": 0,
+      "boxTotal": 333,
+      "leafTotal": "0.00",
+      "tabTotal": "0.00",
+      "subTotal": "333.00"
+    }
+  ],
   "bill": []
 }
