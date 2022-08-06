@@ -1,19 +1,13 @@
-const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("/db.json");
-const middlewares = jsonServer.defaults({
-  static: "./build",
-});
-
+const express = require("express");
+// eslint-disable-next-line no-unused-vars
+// const bodyParser = require('body-parser');
+const path = require("path");
+const app = express();
 const port = process.env.PORT || 8080;
-server.use(middlewares);
-server.use(
-  jsonServer.rewriter({
-    "/api/*": "/$1",
-  })
-);
 
-server.use(router);
-server.listen(port, () => {
-  console.log(`server is running on ${port}`);
-});
+app.use(express.static(path.join(__dirname, "build")));
+
+// This route serves the React app
+app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, "build", "index.html")));
+
+app.listen(port, () => console.log(`Server listening on port ${port}`));
