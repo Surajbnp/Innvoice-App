@@ -1,11 +1,45 @@
 {
   "users": [
     {
-      "name": "suraj",
-      "email": "suraj@gmail.com",
-      "phone": "6206280964",
-      "status": "false",
+      "name": "Paracitamol IP200 ",
+      "brand": "Mankinnd",
+      "mfgMonth": "JAN",
+      "mfgYear": "2022",
+      "expMonth": "MAY",
+      "expYear": "2024",
+      "boxW": "454",
+      "boxR": "880",
+      "no_of_leaf": "10",
+      "no_of_tab": "10",
       "id": 1
+    },
+    {
+      "name": "Cipla Gold 100",
+      "brand": "Farma Hub",
+      "mfgMonth": "JULY",
+      "mfgYear": "2023",
+      "expMonth": "AUG",
+      "expYear": "2025",
+      "boxW": "545",
+      "boxR": "776",
+      "no_of_leaf": "10",
+      "no_of_tab": "5",
+      "id": 2
+    },
+    {
+      "name": "Sumo Gold",
+      "brand": "Farma Hub",
+      "mfgMonth": "JAN",
+      "mfgYear": "2022",
+      "expMonth": "JAN",
+      "expYear": "2022",
+      "boxW": "333",
+      "boxR": "439",
+      "no_of_leaf": "10",
+      "no_of_tab": "10",
+      "id": 3
     }
-  ]
+  ],
+  "cart": [],
+  "bill": []
 }
