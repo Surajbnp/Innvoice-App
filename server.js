@@ -1,14 +1,16 @@
-const jsonServer = require("json-server");
-const server = jsonServer.create();
-const router = jsonServer.router("db.json");
-
-const middlewares = jsonServer.defaults();
-
-server.use(middlewares);
-server.use(router);
-
-const port = app.listen(process.env.PORT || 3000);
-
-server.listen(port, () => {
-  console.log(`JSON Server is running on port ${port}`);
+const express = require('express');
+const app = express();
+ 
+app.get('/', (req, res) => {
+  res
+    .status(200)
+    .send('Hello server is running')
+    .end();
+});
+ 
+// Start the server
+const PORT = process.env.PORT || 8080;
+app.listen(PORT, () => {
+  console.log(`App listening on port ${PORT}`);
+  console.log('Press Ctrl+C to quit.');
 });
