@@ -1,13 +1,14 @@
-const express = require("express");
-// eslint-disable-next-line no-unused-vars
-// const bodyParser = require('body-parser');
-const path = require("path");
-const app = express();
-const port = process.env.PORT || 8080;
+const jsonServer = require('json-server')
+const server = jsonServer.create()
+const router = jsonServer.router('db.json')
 
-app.use(express.static(path.join(__dirname, "build")));
+const middlewares = jsonServer.defaults()
 
-// This route serves the React app
-app.get('/', (req, res) => res.sendFile(path.resolve(__dirname, "build", "index.html")));
+server.use(middlewares)
+server.use(router)
 
-app.listen(port, () => console.log(`Server listening on port ${port}`));
+const port = process.env.PORT || 3000
+
+server.listen(port, () => {
+    console.log(`JSON Server is running on port ${port}`)
+})
