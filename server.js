@@ -4,7 +4,7 @@ const server = jsonServer.create();
 const router = jsonServer.rewriter(data);
 const middlewares = jsonServer.defaults();
 
-const port = process.env.PORT || 8080
+const port = process.env.PORT || 3000
 
 server.use(middlewares);
 server.use(router)
