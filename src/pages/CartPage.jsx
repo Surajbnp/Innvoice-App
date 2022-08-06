@@ -125,8 +125,8 @@ const CartPage = () => {
             return <Accordian key={index} {...e} />;
           })}
       </Flex>
-      <Box bg={"grey"} w="1px" h="80vh"></Box>
-      <Box w="30%" p={8} border={"1px solid red"} h={"80vh"}>
+      <Box bg={"grey"} w="1px" h="auto"></Box>
+      <Box w="30%" p={8} border={"1px solid red"} h={"auto"}>
         <Text fontSize={"xl"} fontWeight={600} color="orange">
           DOCTOR'S DETAILS
         </Text>

@@ -24,7 +24,7 @@ const SinglePage = () => {
   }, [dispatch, id]);
 
   return (
-    <Box h={"160vh"}>
+    <Box h={"160vh"} >
       <Flex p={50} gap={10} direction="row" w={"60%"} margin="auto">
         <Box ref={componentRef} border="1px solid grey" w={"100%"} p={10}>
           <Text fontSize={"2xl"} fontWeight={600} textAlign="center">
@@ -70,11 +70,11 @@ const SinglePage = () => {
 
           {/* table start..... */}
 
-          <Box mt={10} fontSize="12px" h={"auto"}>
-            <Table variant="striped" size={"sm"}>
+          <Box mt={10} fontSize="12px" h={"auto"} >
+            <Table variant="striped" size={"sm"} >
               <Thead>
                 <Tr>
-                  <Th>No.</Th>
+                  <Th >No.</Th>
                   <Th>Perticulars</Th>
                   <Th>Qty.</Th>
                   <Th>Rate</Th>
@@ -83,7 +83,7 @@ const SinglePage = () => {
                   <Th>Amount</Th>
                 </Tr>
               </Thead>
-              <Tbody>
+              <Tbody >
                 {bill?.perticulars?.map((e, index) => {
                   return (
                     <Tr key={e.id}>

@@ -51,11 +51,11 @@ const Addpage = () => {
       <Flex justifyContent="center" mt={5}>
         <Box
           border={"1px solid red"}
-          width="35%"
-          height={"82vh"}
+          width="45%"
+          height={"auto"}
           padding="35px"
         >
-          <Box height="100%">
+          <Box >
             <FormControl isRequired>
               <FormLabel>Product Name</FormLabel>
               <Input
@@ -152,8 +152,8 @@ const Addpage = () => {
                   </Select>
                 </Flex>
               </Box>
-              <Box mt={5}>
-                <Flex justifyContent={"space-evenly"} gap={3}>
+              <Box mt={5} >
+                <Flex justifyContent={"space-evenly"} gap={0}>
                   <FormLabel>Box Price(W)</FormLabel>
                   <FormLabel>Box Price(R)</FormLabel>
                   <FormLabel>Leaf Quantity</FormLabel>
@@ -165,7 +165,7 @@ const Addpage = () => {
                     value={boxW}
                     onChange={(e) => setBoxW(e.target.value)}
                   />
-                    <Input
+                  <Input
                     type="number"
                     value={boxR}
                     onChange={(e) => setBoxR(e.target.value)}
@@ -179,7 +179,7 @@ const Addpage = () => {
                     type="number"
                     value={no_of_tab}
                     onChange={(e) => setTab(e.target.value)}
-                    />
+                  />
                 </Flex>
               </Box>
             </FormControl>
