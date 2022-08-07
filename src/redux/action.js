@@ -7,7 +7,7 @@ const loadUser = () => (dispatch) => {
 
   return axios
     .get(
-      `${devEnv}` ? `${REACT_APP_DEV_URL}users` : `${REACT_APP_PROD_URL}users`
+      `${devEnv}` ? `${REACT_APP_PROD_URL}users` : `${REACT_APP_DEV_URL}users`
     )
     .then((res) => {
       console.log(res.data);
