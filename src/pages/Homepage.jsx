@@ -5,12 +5,21 @@ import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
 import {  loadBill, loadCart, loadUser } from "../redux/action";
 import Card from "../components/Card";
+import { useNavigate } from 'react-router-dom';
 
 const Homepage = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const users = useSelector((state) => state.users);
   let val = localStorage.getItem("mode")
   const [mode, setMode] = useState(val);
+  const token = localStorage.getItem("token");
+
+  if(token === null){
+    navigate('/login')
+  }
+
+
 
   if (mode !== undefined) {
     localStorage.setItem("mode", mode);
