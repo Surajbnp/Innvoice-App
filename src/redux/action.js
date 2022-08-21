@@ -22,8 +22,8 @@ const delUser = (id) => (dispatch) => {
   return axios
     .delete(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}users/${id}`
-        : `${REACT_APP_PROD_URL}users/${id}`
+        ? `${REACT_APP_PROD_URL}users/${id}`
+        : `${REACT_APP_DEV_URL}users/${id}`
     )
     .then((res) => {
       dispatch({ type: types.DELETE_USERS_SUCCESS, payload: res.data });
@@ -40,7 +40,7 @@ const addUser = (d) => (dispatch) => {
   return axios
 
     .post(
-      `${devEnv}` ? `${REACT_APP_DEV_URL}users` : `${REACT_APP_PROD_URL}users`,
+      `${devEnv}` ? `${REACT_APP_PROD_URL}users` : `${REACT_APP_DEV_URL}users`,
       d
     )
     .then((res) => {
@@ -57,8 +57,8 @@ const getSingleUser = (id) => (dispatch) => {
   return axios
     .get(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}users/${id}`
-        : `${REACT_APP_PROD_URL}users/${id}`
+        ? `${REACT_APP_PROD_URL}users/${id}`
+        : `${REACT_APP_DEV_URL}users/${id}`
     )
     .then((res) => {
       dispatch({ type: types.SINGLE_USERS_SUCCESS, payload: res.data });
@@ -75,8 +75,8 @@ const editUser = (id, data) => (dispatch) => {
   return axios
     .put(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}users/${id}`
-        : `${REACT_APP_PROD_URL}users/${id}`,
+        ? `${REACT_APP_PROD_URL}users/${id}`
+        : `${REACT_APP_DEV_URL}users/${id}`,
       data
     )
     .then(() => {
@@ -94,8 +94,8 @@ const searchProd = (query) => (dispatch) => {
   return axios
     .get(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}users?q=${query}`
-        : `${REACT_APP_PROD_URL}uesers?q=${query}`
+        ? `${REACT_APP_PROD_URL}users?q=${query}`
+        : `${REACT_APP_DEV_URL}uesers?q=${query}`
     )
     .then((res) => {
       return dispatch({ type: types.SEARCH_USERS_SUCCESS, payload: res.data });
@@ -110,7 +110,7 @@ const addCart = (payload) => (dispatch) => {
   const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
   return axios
     .post(
-      `${devEnv}` ? `${REACT_APP_DEV_URL}cart` : `${REACT_APP_PROD_URL}cart`,
+      `${devEnv}` ? `${REACT_APP_PROD_URL}cart` : `${REACT_APP_DEV_URL}cart`,
       payload
     )
     .then((res) => {
@@ -125,7 +125,7 @@ const loadCart = () => (dispatch) => {
   const devEnv = process.env.NODE_ENV !== "production";
   const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
   return axios
-    .get(`${devEnv}` ? `${REACT_APP_DEV_URL}cart` : `${REACT_APP_PROD_URL}cart`)
+    .get(`${devEnv}` ? `${REACT_APP_PROD_URL}cart` : `${REACT_APP_DEV_URL}cart`)
     .then((res) => {
       return dispatch({ type: types.GET_CART_SUCCESS, payload: res.data });
     })
@@ -140,8 +140,8 @@ const delCart = (id) => (dispatch) => {
   return axios
     .delete(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}cart/${id}`
-        : `${REACT_APP_PROD_URL}cart/${id}`
+        ? `${REACT_APP_PROD_URL}cart/${id}`
+        : `${REACT_APP_DEV_URL}cart/${id}`
     )
     .then((res) => {
       return dispatch({ type: types.DELETE_CART_SUCCESS, payload: res.data });
@@ -156,7 +156,7 @@ const addBill = (d) => (dispatch) => {
   const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
   return axios
     .post(
-      `${devEnv}` ? `${REACT_APP_DEV_URL}bill` : `${REACT_APP_PROD_URL}bill`,
+      `${devEnv}` ? `${REACT_APP_PROD_URL}bill` : `${REACT_APP_DEV_URL}bill`,
       d
     )
     .then((res) => {
@@ -171,7 +171,7 @@ const loadBill = () => (dispatch) => {
   const devEnv = process.env.NODE_ENV !== "production";
   const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
   return axios
-    .get(`${devEnv}` ? `${REACT_APP_DEV_URL}bill` : `${REACT_APP_PROD_URL}bill`)
+    .get(`${devEnv}` ? `${REACT_APP_PROD_URL}bill` : `${REACT_APP_DEV_URL}bill`)
     .then((res) => {
       return dispatch({ type: types.GET_BILL_SUCCESS, payload: res.data });
     })
@@ -186,8 +186,8 @@ const singleBill = (id) => (dispatch) => {
   return axios
     .get(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}bill/${id}`
-        : `${REACT_APP_PROD_URL}bill/${id}`
+        ? `${REACT_APP_PROD_URL}bill/${id}`
+        : `${REACT_APP_DEV_URL}bill/${id}`
     )
     .then((res) => {
       return dispatch({
@@ -204,8 +204,8 @@ const editBill = (id, data) => (dispatch) => {
   return axios
     .put(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}bill/${id}`
-        : `${REACT_APP_PROD_URL}bill/${id}`,
+        ? `${REACT_APP_PROD_URL}bill/${id}`
+        : `${REACT_APP_DEV_URL}bill/${id}`,
       data
     )
     .then(() => {
@@ -219,8 +219,8 @@ const delBill = (id) => (dispatch) => {
   return axios
     .delete(
       `${devEnv}`
-        ? `${REACT_APP_DEV_URL}bill/${id}`
-        : `${REACT_APP_PROD_URL}bill/${id}`
+        ? `${REACT_APP_PROD_URL}bill/${id}`
+        : `${REACT_APP_DEV_URL}bill/${id}`
     )
     .then((res) => {
       return dispatch({ type: types.DELETE_BILL_SUCCESS, payload: res.data });
