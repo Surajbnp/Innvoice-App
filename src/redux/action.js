@@ -3,7 +3,7 @@ import axios from "axios";
 
 const loadUser = () => (dispatch) => {
   const devEnv = process.env.NODE_ENV !== "production";
-  const { REACT_APP_DEV_URL, REACT_APP_PROD_URL } = process.env;
+  const { REACT_APP_PROD_URL, REACT_APP_DEV_URL } = process.env;
 
   return axios
     .get(
