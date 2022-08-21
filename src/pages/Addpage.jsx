@@ -55,7 +55,7 @@ const Addpage = () => {
           height={"auto"}
           padding="35px"
         >
-          <Box >
+          <Box>
             <FormControl isRequired>
               <FormLabel>Product Name</FormLabel>
               <Input
@@ -158,7 +158,7 @@ const Addpage = () => {
                   </Select>
                 </Flex>
               </Box>
-              <Box mt={5} >
+              <Box mt={5}>
                 <Flex justifyContent={"space-evenly"} gap={0}>
                   <FormLabel>Box Price(W)</FormLabel>
                   <FormLabel>Box Price(R)</FormLabel>
