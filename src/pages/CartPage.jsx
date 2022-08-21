@@ -121,7 +121,7 @@ const CartPage = () => {
         </Flex>
 
         {cartData?.length &&
-          cartData.map((e, index) => {
+          cartData?.map((e, index) => {
             return <Accordian key={index} {...e} />;
           })}
       </Flex>

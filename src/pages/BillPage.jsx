@@ -42,7 +42,7 @@ const BillPage = () => {
           </Thead>
           <Tbody>
             {billData?.length &&
-              billData.map((e) => {
+              billData?.map((e) => {
                 return (
                   <Tr key={e.id}>
                     <Td>{e.id}</Td>
