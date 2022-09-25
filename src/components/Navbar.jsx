@@ -20,7 +20,8 @@ import { Link, useNavigate } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
 import { AiOutlineBook } from "react-icons/ai";
 import { useSelector } from "react-redux";
-import { ToastContainer } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 import { Avatar, AvatarGroup } from "@chakra-ui/react";
 // import { useSelector } from "react-redux";
 
@@ -31,11 +32,23 @@ export default function Navbar() {
   //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const bill = useSelector((state) => state.bill);
+  const token = localStorage.getItem("token");
   const [toggle, setToggle] = useState(false);
 
+
+  const handleLogout = () => {
+    localStorage.setItem('token', 'undefined')
+    navigate('/login')
+    toast.success("Logout successfully 😍", {
+      position: "top-right",
+      autoClose: 2000,
+    });
+  }
+
   const addPage = () => {
-    navigate("/add");
+    navigate("/products/create");
   };
+
 
   return (
     <>
@@ -89,7 +102,7 @@ export default function Navbar() {
                 <Button
                   size={"sm"}
                   fontSize="12px"
-                  colorScheme={"green"}
+                  colorScheme={"whatsapp"}
                   marginRight="15px"
                   onClick={addPage}
                   leftIcon={<AddIcon />}
@@ -100,7 +113,7 @@ export default function Navbar() {
                 <Button
                   size={"sm"}
                   fontSize="12px"
-                  colorScheme={"green"}
+                  colorScheme={"whatsapp"}
                   marginRight="15px"
                   leftIcon={<AiOutlineBook size={20} />}
                   onClick={() => {
@@ -155,12 +168,16 @@ export default function Navbar() {
                     transition="0.5s ease-in"
                     onClick={() => setToggle(!toggle)}
                     _hover={{ cursor: "pointer" }}
-                    name="suraj kumar"
-                    bg="red"
+                    bg={token === "undefined" ? "#FF0000" : "#00FF00"}
                     src=""
                   />
                   {toggle ? (
-                    <Button colorScheme={"green"}>Logout</Button>
+                    <Button
+                    onClick={token === "undefined" ? null : handleLogout}
+                      colorScheme={token === "undefined" ? "whatsapp" : "red"}
+                    >
+                      {token === "undefined" ? "Login" : "Logout"}
+                    </Button>
                   ) : null}
                 </AvatarGroup>
               </Flex>

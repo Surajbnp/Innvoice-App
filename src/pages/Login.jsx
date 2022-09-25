@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Box, Text, Input, Stack, Button } from "@chakra-ui/react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { login } from "../redux/action";
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -14,8 +14,6 @@ const Login = () => {
   const navigate = useNavigate()
   const dispatch = useDispatch();
   const token = localStorage.getItem("token")
-  console.log(token);
-
 
   const handleLogin = () => {
     if (!username || !password) {
@@ -27,9 +25,10 @@ const Login = () => {
       password,
     };
     dispatch(login(payload)).then((res) => {
+      console.log(res);
        localStorage.setItem("token", res.token)
       if(res.type == "LOGIN_USER_SUCCESS"){
-          navigate('/')
+          navigate('/products')
         toast.success("Login successfully 😍", {
           position: "top-right",
           autoClose: 2000,
@@ -97,7 +96,7 @@ const Login = () => {
         <br />
         <Stack>
           <Button m="auto" mt={4} colorScheme="whatsapp" onClick={handleLogin}>
-            Create
+            Login
           </Button>
         </Stack>
         <p

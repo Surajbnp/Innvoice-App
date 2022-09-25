@@ -34,19 +34,30 @@ const reducer = (state = initialState, action) => {
         isError: false,
       };
 
-    case types.GET_PDODUCT_REQUEST:
+    case types.GET_PRODUCT_REQUEST:
       return {
         isLoading: true,
         isError: false,
       };
 
-    case types.GET_PDODUCT_SUCCESS:
+    case types.GET_PRODUCT_SUCCESS:
       return {
         isLoading: false,
-        products : payload,
+        products: payload,
         isError: false,
       };
-
+    case types.GET_PRODUCT_FAILURE:
+      return {
+        isLoading: false,
+        isError: true,
+      };
+    case types.CREATE_PRODUCT_SUCCESS:
+      return {
+        isLoading: false,
+        isError: false,
+      };
+    case types.DELETE_PRODUCT_SUCCESS:
+    case types.GET_SINGLE_PRODUCT_SUCCESS:
     default:
       return state;
   }
