@@ -21,11 +21,11 @@ import {
 } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { AiOutlineBook } from "react-icons/ai";
+import { AiOutlineBook, AiOutlineUser } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
-import { loadUser, searchProd } from "../redux/action";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
 // import { useSelector } from "react-redux";
 
 export default function Navbar() {
@@ -36,22 +36,6 @@ export default function Navbar() {
   const cart = useSelector((state) => state.cart);
   const bill = useSelector((state) => state.bill);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    if (query) {
-      dispatch(searchProd(query)).then((r) => {
-        console.log(r.payload);
-
-        if (r.payload?.length === 0) {
-          toast.error("Sorry😒 ! No Items Found", {
-            autoClose: 2000,
-          });
-          dispatch(loadUser());
-        }
-      });
-      setQuery("");
-    }
-  };
 
   const addPage = () => {
     navigate("/add");
@@ -59,60 +43,49 @@ export default function Navbar() {
 
   return (
     <>
-      <Box bg={useColorModeValue("rgb(200, 48, 79)", "gray.900")} px={4}>
+      <Box bg={useColorModeValue("blue.800", "black")} px={4}>
         <Flex h={16} alignItems={"center"} justifyContent={"space-between"}>
           <Link to="/">
-            <Text fontWeight={600}>PREM MEDICAL AGENCY</Text>
+            <Text fontSize="xl" color="#FF9933" fontWeight={700}>
+              <span style={{ fontSize: "35px" }}>P</span>REM{" "}
+              <span style={{color:' #FFFFFF'}}>MEDICAL</span>{" "}
+              <span style={{color:' #138808'}}>
+                AGENC<span style={{ fontSize: "35px" }}>Y</span>
+              </span>
+            </Text>
           </Link>
-
-          <Box
-            w={"40%"}
-            display="flex"
-            alignItems={"center"}
-            gap="2"
-            borderRadius={7}
-          >
-            <InputGroup>
-              <InputLeftElement
-                pointerEvents="none"
-                children={<SearchIcon color="orange.300" />}
-              />
-              <Input
-                type="text"
-                placeholder="Search Products..."
-                variant="flushed"
-                value={query}
-                onChange={(e) => setQuery(e.target.value)}
-              />
-            </InputGroup>
-            <Box>
-              <IconButton
-                colorScheme="orange"
-                aria-label="Search database"
-                fontSize="14px"
-                height="33px"
-                icon={<SearchIcon />}
-                onClick={handleSearch}
-              />
-              <ToastContainer />
-            </Box>
-            <Box>
-              <Button
-                size="sm"
-                colorScheme={"red"}
-                fontWeight="450"
-                leftIcon={<RepeatIcon />}
-                onClick={() => {
-                  dispatch(loadUser());
-                }}
-              >
-                Reset
-              </Button>
-            </Box>
-          </Box>
 
           <Flex alignItems={"center"}>
             <Stack direction={"row"} spacing={7}>
+              <Box
+                w={"40%"}
+                display="flex"
+                alignItems={"center"}
+                gap="2"
+                borderRadius={7}
+              >
+                <Box>
+                  <IconButton
+                    colorScheme="orange"
+                    aria-label="Search database"
+                    fontSize="14px"
+                    height="33px"
+                    icon={<SearchIcon />}
+                  />
+                  <ToastContainer />
+                </Box>
+                <Box>
+                  <Button
+                    size="sm"
+                    colorScheme={"red"}
+                    fontWeight="450"
+                    leftIcon={<RepeatIcon />}
+                  
+                  >
+                    Reset
+                  </Button>
+                </Box>
+              </Box>
               <Button onClick={toggleColorMode}>
                 {colorMode === "light" ? <MoonIcon /> : <SunIcon />}
               </Button>
@@ -182,6 +155,9 @@ export default function Navbar() {
                 >
                   {cart?.length}
                 </Box>
+                <AvatarGroup>
+                  <Avatar onClick={() =>  navigate("/login")} _hover={{cursor:'pointer'}} name="suraj kumar" bg="red" src="" />
+                </AvatarGroup>
               </Flex>
             </Stack>
           </Flex>

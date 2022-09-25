@@ -7,18 +7,19 @@ import { BrowserRouter } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./redux/store";
 import { ChakraProvider } from "@chakra-ui/react";
+import  axios  from "axios";
 
-
+axios.defaults.baseURL = "localhost:8080"
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-    <BrowserRouter>
-      <ChakraProvider>
-        <Provider store={store}>
-          <App />
-        </Provider>
-      </ChakraProvider>
-    </BrowserRouter>
+  <BrowserRouter>
+    <ChakraProvider>
+      <Provider store={store}>
+        <App />
+      </Provider>
+    </ChakraProvider>
+  </BrowserRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function

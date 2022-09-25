@@ -1,56 +1,79 @@
-import React from "react";
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { Box, Text, Input, Stack, Button } from "@chakra-ui/react";
+import { useDispatch, useSelector } from "react-redux";
+import { login } from "../redux/action";
 
 const Login = () => {
-  const [name, setN] = useState("");
-  const [pass, setP] = useState("");
-  const navigate = useNavigate();
+  const [username, setUser] = useState("");
+  const [password, setPass] = useState("");
+  const dispatch = useDispatch();
 
   const handleLogin = () => {
-    if (name === "ajay" && pass === "ajay8809") {
-      localStorage.setItem("token", "5245545");
-    } else {
-      alert("Invalid User or Password");
-    }
-    navigate("/");
+    const payload = {
+      username,
+      password,
+    };
+
+    // dispatch(login(payload));
+    fetch('http://localhost:8080/login',{
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(payload)
+    }).then((res) => res.json()).then((res) => {
+      console.log(res);
+    }).catch((err) => console.log(err))
   };
 
   return (
-    <div>
-      <h1>LOGIN</h1>
-      <div
-        style={{
-          display: "flex",
-          flexDirection: "column",
-          border: "1px solid red",
-          width: "300px",
-          textAlign: "start",
-          padding: "20px",
-          justifyContent: "center",
-          margin: "auto",
-        }}
+    <Box h="80vh">
+      <Text mt="2" fontSize={"3xl"} fontWeight="bold">
+        Login
+      </Text>
+      <Box
+        w="30%"
+        h="auto"
+        margin="10px auto"
+        textAlign="start"
+        padding="25px"
+        boxShadow="rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset"
+        borderRadius="15px"
       >
         <label>Username</label>
-        <input
-          style={{ border: "1px solid grey", paddingLeft: "5px" }}
+        <Input
           type="text"
-          onChange={(e) => setN(e.target.value)}
+          placeholder="enter username"
+          value={username || ""}
+          onChange={(e) => setUser(e.target.value)}
         />
-        <label> Password</label>
-        <input
-          style={{ border: "1px solid grey", paddingLeft: "5px" }}
+        <label>Password</label>
+        <Input
           type="password"
-          onChange={(e) => setP(e.target.value)}
+          placeholder="enter password"
+          value={password || ""}
+          onChange={(e) => setPass(e.target.value)}
         />
-        <button
-          style={{ background: "green", color: "white", marginTop: "20px" }}
-          onClick={handleLogin}
+        <br />
+        <Stack>
+          <Button m="auto" mt={4} colorScheme="whatsapp" onClick={handleLogin}>
+            Create
+          </Button>
+        </Stack>
+        <p
+          style={{
+            fontStyle: "italic",
+            textAlign: "center",
+            marginTop: "10px",
+          }}
         >
-          Login
-        </button>
-      </div>
-    </div>
+          New User ? Please{" "}
+          <span style={{ color: "blue", textDecoration: "underline" }}>
+            <a href="/signup">Create a account</a>
+          </span>
+        </p>
+      </Box>
+    </Box>
   );
 };
 

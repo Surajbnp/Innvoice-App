@@ -8,6 +8,7 @@ import CartPage from "./CartPage";
 import BillPage from "./BillPage";
 import SinglePage from "./SinglePage";
 import Login from "./Login";
+import Signup from './Signup';
 
 
 const MainRoutes = () => {
@@ -21,6 +22,7 @@ const MainRoutes = () => {
       <Route path="/bill" element={<BillPage />} />
       <Route path="/bill/:id" element={<SinglePage />} />
       <Route path="/login" element={<Login />}/>
+      <Route path="/signup" element={<Signup />}/>
     </Routes>
   );
 };
