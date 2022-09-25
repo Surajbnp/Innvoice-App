@@ -1,7 +1,7 @@
 import * as types from "./actionTypes";
 
 const initialState = {
-  products : [],
+  products: [],
   isLoading: false,
   isError: false,
 };
@@ -13,13 +13,40 @@ const reducer = (state = initialState, action) => {
     case types.LOGIN_USER_REQUEST:
       return {
         isLoading: true,
-        isErrror : false
+        isErrror: false,
       };
-      case types.LOGIN_USER_SUCCESS:
+
+    case types.LOGIN_USER_SUCCESS:
       return {
         isLoading: false,
-        isErrror : false
+        isErrror: false,
       };
+
+    case types.SIGNUP_USER_REQUEST:
+      return {
+        isLoading: true,
+        isError: false,
+      };
+
+    case types.SIGNUP_USER_SUCCESS:
+      return {
+        isLoading: false,
+        isError: false,
+      };
+
+    case types.GET_PDODUCT_REQUEST:
+      return {
+        isLoading: true,
+        isError: false,
+      };
+
+    case types.GET_PDODUCT_SUCCESS:
+      return {
+        isLoading: false,
+        products : payload,
+        isError: false,
+      };
+
     default:
       return state;
   }

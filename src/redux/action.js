@@ -1,32 +1,45 @@
 import * as types from "./actionTypes";
 import axios from "axios";
-import env from "react-dotenv";
+let token = localStorage.getItem("token")
 
-// const loadUser = () => (dispatch) => {
-//   const devEnv = process.env.NODE_ENV !== "production";
-//   const { REACT_APP_PROD_URL, REACT_APP_DEV_URL } = process.env;
 
-//   return axios
-//     .get(
-//       `${devEnv}` ? `${REACT_APP_PROD_URL}users` : `${REACT_APP_DEV_URL}users`
-//     )
-//     .then((res) => {
-//       console.log(res.data);
-//       return dispatch({ type: types.GET_USERS_SUCCESS, payload: res.data });
-//     })
-//     .catch((err) => dispatch({ type: types.GET_USERS_FAILURE, payload: err }));
-// };
-const url = 'localhost:8080'
-
-const login = (payload) => (dispatch) => {
+const login = (pay) => (dispatch) => {
   dispatch({ type: types.LOGIN_USER_REQUEST });
-  fetch(`${url}/login`,{
-    method: 'POST',
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    body: payload 
-  }).then((res) => res.json()).then((res) => console.log(res))
+  return axios.post("/login", pay).then((res) => {
+    return dispatch({type : types.LOGIN_USER_SUCCESS, token : res.data.token})
+  }).catch((err) => {
+    console.log(err);
+   return dispatch({type : types.LOGIN_USER_FAILURE})
+  })
 };
 
-export { login };
+const signup = (payload) => (dispatch) => {
+  dispatch({ type: types.SIGNUP_USER_REQUEST });
+  
+  return axios.post("/signup", payload).then((res) => {
+    return dispatch({type : types.SIGNUP_USER_SUCCESS})
+  }).catch((err) => {
+    console.log(err);
+   return dispatch({type : types.SIGNUP_USER_FAILURE})
+  })
+};
+
+
+const getProduct= (token) => dispatch => {
+  dispatch({type : types.GET_PDODUCT_SUCCESS})
+  return  axios.get('/products',
+    {
+      method: 'get',
+      headers: {
+        'Content-Type': 'application/json',
+         Authorization : token
+      }
+  }).then((res) => {
+    return dispatch({type : types.GET_PDODUCT_SUCCESS, payload : res.data})
+  }).catch((err) => {
+    console.log(err);
+   return dispatch({type : types.GET_PRODUCT_FAILURE})
+  })
+}
+
+export { login, signup, getProduct };

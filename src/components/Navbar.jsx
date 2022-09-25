@@ -6,10 +6,7 @@ import {
   useColorModeValue,
   Stack,
   useColorMode,
-  InputGroup,
   Text,
-  InputLeftElement,
-  Input,
   IconButton,
 } from "@chakra-ui/react";
 import {
@@ -21,21 +18,20 @@ import {
 } from "@chakra-ui/icons";
 import { Link, useNavigate } from "react-router-dom";
 import { BsFillCartPlusFill } from "react-icons/bs";
-import { AiOutlineBook, AiOutlineUser } from "react-icons/ai";
-import { useDispatch, useSelector } from "react-redux";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import { Avatar, AvatarBadge, AvatarGroup } from "@chakra-ui/react";
+import { AiOutlineBook } from "react-icons/ai";
+import { useSelector } from "react-redux";
+import { ToastContainer } from "react-toastify";
+import { Avatar, AvatarGroup } from "@chakra-ui/react";
 // import { useSelector } from "react-redux";
 
 export default function Navbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const navigate = useNavigate();
-  const [query, setQuery] = useState("");
-  const dispatch = useDispatch();
+  //const [query, setQuery] = useState("");
+  //const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const bill = useSelector((state) => state.bill);
-
+  const [toggle, setToggle] = useState(false);
 
   const addPage = () => {
     navigate("/add");
@@ -48,8 +44,8 @@ export default function Navbar() {
           <Link to="/">
             <Text fontSize="xl" color="#FF9933" fontWeight={700}>
               <span style={{ fontSize: "35px" }}>P</span>REM{" "}
-              <span style={{color:' #FFFFFF'}}>MEDICAL</span>{" "}
-              <span style={{color:' #138808'}}>
+              <span style={{ color: " #FFFFFF" }}>MEDICAL</span>{" "}
+              <span style={{ color: " #138808" }}>
                 AGENC<span style={{ fontSize: "35px" }}>Y</span>
               </span>
             </Text>
@@ -80,7 +76,6 @@ export default function Navbar() {
                     colorScheme={"red"}
                     fontWeight="450"
                     leftIcon={<RepeatIcon />}
-                  
                   >
                     Reset
                   </Button>
@@ -156,7 +151,17 @@ export default function Navbar() {
                   {cart?.length}
                 </Box>
                 <AvatarGroup>
-                  <Avatar onClick={() =>  navigate("/login")} _hover={{cursor:'pointer'}} name="suraj kumar" bg="red" src="" />
+                  <Avatar
+                    transition="0.5s ease-in"
+                    onClick={() => setToggle(!toggle)}
+                    _hover={{ cursor: "pointer" }}
+                    name="suraj kumar"
+                    bg="red"
+                    src=""
+                  />
+                  {toggle ? (
+                    <Button colorScheme={"green"}>Logout</Button>
+                  ) : null}
                 </AvatarGroup>
               </Flex>
             </Stack>
