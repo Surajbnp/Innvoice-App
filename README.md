@@ -1,70 +1,72 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Innvoice App 
+This Innvoice app is specially  desined for a 'Medical Store', with all the functionality like "adding the product, sorting & searching, wholesale & retail mode, bill's page, comes with Night Mode and it's also genreating A4 size electronic bill. 
 
-## Available Scripts
+## About Project:
 
-In the project directory, you can run:
+This Website is made for a "Medical Store", which provides various types of fuctionality likes, You can add Products, Search & sort the product, It's also shows the 
+Expairy and Mfg date of the product and Available in two modes like 'Wholasale & Retail mode'. It has also a good functionality called billing where you can cut 
+the bill to a perticular customer or doctor and it's automatically genreates the A4 size bill which you can save in the PDF or print it also.
 
-### `npm start`
+## Pages and Features: 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Home Page : 
+![home](https://user-images.githubusercontent.com/97525465/191312545-5639c87d-4294-4b60-8897-dcaa71ed28fa.png) 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### Add Product Page: 
+![Audio Projects Page](https://user-images.githubusercontent.com/97525465/191312710-0a6d8573-58a5-4123-9bcc-61dac89999c3.png) 
 
-### `npm test`
+### Also Available In Night Mode: 
+![home](https://user-images.githubusercontent.com/97525465/191312745-73a5a37f-55b8-4726-8f62-de0f60e08c6c.png) 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Edit Product Page: 
+![Single Audio Project Page](https://user-images.githubusercontent.com/97525465/191312776-f1b7b8a0-b136-4c1e-a03a-58e54134c1c3.png) 
 
-### `npm run build`
+### Cart Page: 
+![Login](https://user-images.githubusercontent.com/97525465/191312810-abfba7f7-bb6e-4eef-aa9b-0e72a6d583e7.png) 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Billing Page: 
+![payment](https://user-images.githubusercontent.com/97525465/191312836-9aaa9c05-e68c-4bef-ac85-5d60a2b6062e.png)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Bill Page: 
+![payment](https://user-images.githubusercontent.com/97525465/191312869-7a4cd401-7284-4ce5-b039-1120060d8ccf.png)
 
-### `npm run eject`
+### Payment Page: 
+![payment](https://user-images.githubusercontent.com/97525465/191312896-fdb5f194-949b-4d20-a4d4-12b586444f88.png)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Genreated A4 Size Bill: 
+![payment](https://user-images.githubusercontent.com/97525465/191312925-fdf5fb54-38d2-4c9c-a232-7f1254eb33d2.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Tech-Stack used : 
+- HTML
+- CSS 
+- JavaScript 
+- React
+- Redux 
+- Redux-thunk 
+- React-router-dom
+- Chakra-UI 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+### Server: 
+- json-server 
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Deployment Link: 
+   http://premmed.herokuapp.com//
+   
 
-## Learn More
+## Authors: 
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+1. Suraj Kumar Gupta :
+[![portfolio](https://img.shields.io/badge/my_portfolio-000?style=for-the-badge&logo=ko-fi&logoColor=white)](https://github.com/Surajbnp)
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/suraj-kumar-gupta-058191222/) 
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Feedback: 
+If you have any feedback, any suggestion please reach out to us at 
+surajguptabnp14c@gmail.com,
 
-### Analyzing the Bundle Size
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
