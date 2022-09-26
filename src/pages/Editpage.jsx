@@ -4,6 +4,7 @@ import {
   Flex,
   FormLabel,
   Input,
+  Spinner,
   Text,
   FormControl,
   Select,
@@ -12,7 +13,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from "react-router-dom";
-import {  getProduct, singleProd } from "../redux/action";
+import {  editProd, getProduct, singleProd } from "../redux/action";
 
 const Editpage = () => {
   const [name, setName] = useState("");
@@ -29,6 +30,8 @@ const Editpage = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const [prod, setP] = useState([])
+  const [loader, setLoader] = useState(false)
+
 
   const handleUpdate = () => {
     const payload = {
@@ -42,9 +45,14 @@ const Editpage = () => {
       r_p,
     };
 
-    // console.log("payload is ", payload);
-    // dispatch(editUser(id, payload));
-    // navigate("/");
+    dispatch(editProd(id, token, payload)).then((res) => {
+      if(res.type === 'EDIT_PRODUCT_SUCCESS'){
+        setLoader(false)
+        navigate("/");
+      }else{
+        setLoader(true)
+      }
+    })
   };
 
   useEffect(() => {
@@ -69,6 +77,19 @@ const Editpage = () => {
   return (
     <>
       <Text>Edit Product</Text>
+      {loader ? <Spinner
+              thickness="4px"
+              speed="0.65s"
+              emptyColor="gray.200"
+              color="blue.500"
+              size="xl"
+              position="absolute"
+              margin="auto"
+              top={0}
+              left={0}
+              right={0}
+              bottom={0}
+            />: 
       <Flex justifyContent="center">
         <Box
           border={"1px solid red"}
@@ -202,7 +223,7 @@ const Editpage = () => {
             </FormControl>
           </Box>
         </Box>
-      </Flex>
+      </Flex>}
     </>
   );
 };

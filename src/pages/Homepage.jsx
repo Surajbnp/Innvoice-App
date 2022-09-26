@@ -1,11 +1,10 @@
-import React, { useState, useEffect,useCallback } from "react";
+import React, { useState, useEffect } from "react";
 import {
   Table,
   Thead,
   Tr,
   Th,
   Box,
-  Text,
   TableContainer,
   Select,
   Spinner,
@@ -14,8 +13,8 @@ import { useDispatch, useSelector } from "react-redux";
 import Card from "../components/Card";
 import { useNavigate } from "react-router-dom";
 import { deleteProduct, getProduct } from "../redux/action";
-import { toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Homepage = () => {
   const dispatch = useDispatch();
@@ -36,12 +35,12 @@ const Homepage = () => {
   };
 
   const handleDel = (id) => {
-    dispatch(deleteProduct(id,token)).then(() => {
+    dispatch(deleteProduct(id, token)).then(() => {
       toast.success("Item deleted successfully 😍", {
         position: "top-right",
         autoClose: 2000,
       });
-     dispatch(getProduct(token));
+      dispatch(getProduct(token));
     });
   };
 
@@ -49,11 +48,11 @@ const Homepage = () => {
     if (token == "undefined") {
       navigate("/login");
     }
-    dispatch(getProduct(token))
+    dispatch(getProduct(token));
   }, []);
 
   return (
-    <Box border={"1px solid red"} w="100%" h="100vh">
+    <Box w="100%" h="100vh">
       <TableContainer>
         <Table variant="striped">
           <Thead>
@@ -71,17 +70,15 @@ const Homepage = () => {
                   fontWeight="600"
                   value={mode}
                   onChange={handleMode}
-                  >
+                >
                   <option value="wholesale">Wholesale</option>
                   <option value="retail">Retail</option>
                 </Select>
               </Th>
-              {/* <Th>Leaf Price</Th>
-              <Th>Retail Price</Th> */}
               <Th>Action</Th>
             </Tr>
           </Thead>
-          {isError ? navigate('*') : null}
+          {isError ? navigate("*") : null}
           {!products ? (
             <Spinner
               thickness="4px"
@@ -99,13 +96,15 @@ const Homepage = () => {
           ) : (
             products?.length &&
             products.map((e, index) => {
-              return <Card key={index} {...e} handleDel={handleDel} serial={index} />;
+              return (
+                <Card key={index} {...e} handleDel={handleDel} serial={index} />
+              );
             })
           )}
         </Table>
       </TableContainer>
     </Box>
-    );
+  );
 };
 
 export default Homepage;

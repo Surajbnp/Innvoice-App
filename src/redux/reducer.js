@@ -58,6 +58,8 @@ const reducer = (state = initialState, action) => {
       };
     case types.DELETE_PRODUCT_SUCCESS:
     case types.GET_SINGLE_PRODUCT_SUCCESS:
+      case types.EDIT_PRODUCT_SUCCESS:
+
     default:
       return state;
   }

@@ -2,6 +2,8 @@ import * as types from "./actionTypes";
 import axios from "axios";
 import { useCallback } from "react";
 
+// login Functionality
+
 const login = (pay) => (dispatch) => {
   dispatch({ type: types.LOGIN_USER_REQUEST });
   return axios
@@ -18,6 +20,8 @@ const login = (pay) => (dispatch) => {
     });
 };
 
+// Signup Functionality
+
 const signup = (payload) => (dispatch) => {
   dispatch({ type: types.SIGNUP_USER_REQUEST });
 
@@ -31,6 +35,9 @@ const signup = (payload) => (dispatch) => {
       return dispatch({ type: types.SIGNUP_USER_FAILURE });
     });
 };
+
+
+// Getting product Function
 
 const getProduct = (token) => (dispatch) => {
   dispatch({ type: types.GET_PRODUCT_SUCCESS });
@@ -49,6 +56,9 @@ const getProduct = (token) => (dispatch) => {
       return dispatch({ type: types.GET_PRODUCT_FAILURE, err: err });
     });
 };
+
+
+// Adding New Products 
 
 const createProduct = (token, payload) => (dispatch) => {
   dispatch({ type: types.CREATE_PRODUCT_REQUEST });
@@ -69,6 +79,8 @@ const createProduct = (token, payload) => (dispatch) => {
     });
 };
 
+// Deleting The products
+
 const deleteProduct = (id, token) => (dispatch) => {
   dispatch({ type: types.DELETE_PRODUCT_REQUEST });
 
@@ -88,6 +100,8 @@ const deleteProduct = (id, token) => (dispatch) => {
     });
 };
 
+// Getting the single products
+
 const singleProd = (id, token) => (dispatch) => {
   return axios
     .get(`/products/${id}`, {
@@ -105,4 +119,25 @@ const singleProd = (id, token) => (dispatch) => {
     });
 };
 
-export { login, signup, getProduct, createProduct, deleteProduct, singleProd };
+// Editing the products
+
+const editProd = (id, token, pay) => (dispatch) => {
+  dispatch({ type: types.EDIT_PRODUCT_REQUEST });
+
+  return axios
+    .patch(`/products/edit/${id}`,pay, {
+      method: "patch",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: token,
+      },
+    })
+    .then((res) => {
+      return dispatch({ type: types.EDIT_PRODUCT_SUCCESS , payload : res.data});
+    })
+    .catch((err) => {
+      return dispatch({ type: types.EDIT_PRODUCT_FAILURE , err: err});
+    });
+};
+
+export { login, signup, getProduct, createProduct, deleteProduct, singleProd, editProd };
